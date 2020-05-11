@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+// const slugify = require('slufigy');
 
 const BootcampsSchema = new mongoose.Schema({
   name: {
