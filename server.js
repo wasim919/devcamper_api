@@ -1,5 +1,6 @@
 const express = require('express');
 const connectDB = require('./config/db');
+const errorHandler = require('./middleware/errorHandler');
 
 // Connect to database
 connectDB();
@@ -8,8 +9,13 @@ const bootcamps = require('./routes/bootcamps');
 
 const app = express();
 
+// Body parser
+app.use(express.json());
+
 // Mount routers
 app.use('/api/v1/bootcamps', bootcamps);
+
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 

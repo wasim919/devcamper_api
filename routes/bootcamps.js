@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 const {
   getBootcamps,
@@ -6,11 +6,25 @@ const {
   createBootcamp,
   updateBootcamp,
   deleteBootcamp,
-} = require("../controllers/bootcamps");
+} = require('../controllers/bootcamps');
+const { check, validationResult } = require('express-validator');
 
-router.route("/").get(getBootcamps).post(createBootcamp);
 router
-  .route("/:id")
+  .route('/')
+  .get(getBootcamps)
+  .post(
+    [
+      check('name', 'Name must not be greater than 50 characters')
+        .not()
+        .isEmpty()
+        .isLength({ max: 50 }),
+      check('address', 'Address must be present').not().isEmpty(),
+    ],
+    createBootcamp
+  );
+
+router
+  .route('/:id')
   .get(getBootcamp)
   .put(updateBootcamp)
   .delete(deleteBootcamp);
