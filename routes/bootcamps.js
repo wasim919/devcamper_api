@@ -6,6 +6,7 @@ const {
   createBootcamp,
   updateBootcamp,
   deleteBootcamp,
+  getBootcampsInRadius,
 } = require('../controllers/bootcamps');
 const { check, validationResult } = require('express-validator');
 
@@ -16,5 +17,7 @@ router
   .get(getBootcamp)
   .put(updateBootcamp)
   .delete(deleteBootcamp);
+
+router.route('/radius/:zipcode/:distance').get(getBootcampsInRadius);
 
 module.exports = router;
