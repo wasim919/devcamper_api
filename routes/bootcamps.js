@@ -8,7 +8,12 @@ const {
   deleteBootcamp,
   getBootcampsInRadius,
 } = require('../controllers/bootcamps');
-const { check, validationResult } = require('express-validator');
+
+// Include other resource router
+const courseRouter = require('./courses');
+
+// Re-route to other  resource router
+router.use('/:bootcampId/courses', courseRouter);
 
 router.route('/').get(getBootcamps).post(createBootcamp);
 
