@@ -22,4 +22,10 @@ npm run dev
 npm start
 ```
 
+# You can find the documentation of the api at:
+
+> [Postman Docs](https://documenter.getpostman.com/view/10666268/Szt7AqmJ)
+
+> On the homepage of the api when it's up and running
+
 - Version 1.0.0
