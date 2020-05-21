@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "NODE_ENV=production node server",
+    "start": "SET NODE_ENV=production & node server",
     "dev": "nodemon server"
   },
   "author": "",
